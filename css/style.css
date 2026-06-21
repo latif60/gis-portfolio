@@ -270,7 +270,7 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
 /* ============================== ABOUT ============================== */
 .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 3.5rem; margin-top: 2.5rem; align-items: start; }
 .frame { position: relative; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; background: var(--paper-raised); }
-.frame img { width: 100%; height: 100%; object-fit: cover; }
+.frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 .frame.frame-fallback::after {
   content: "PHOTO";
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
