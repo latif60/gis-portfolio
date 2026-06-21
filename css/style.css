@@ -331,8 +331,10 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
 .section-map { padding-bottom: 4.5rem; }
 .map-wrap { margin: 2.5rem 0; border-top: 1px solid var(--line-on-dark); border-bottom: 1px solid var(--line-on-dark); }
 #fieldMap { width: 100%; height: 480px; background: var(--ink-raised); }
+.map-tiles-dark { filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.92) saturate(0.85); }
 .leaflet-popup-content-wrapper { background: var(--ink-raised); color: var(--text-dark-bg); border-radius: var(--radius); }
 .leaflet-popup-content { font-family: var(--font-body); font-size: 0.9rem; margin: 0.8rem 1rem; }
+.popup-photo { width: 100%; height: 110px; object-fit: cover; border-radius: 3px; margin-bottom: 0.5rem; }
 .leaflet-popup-tip { background: var(--ink-raised); }
 .leaflet-popup-content strong { font-family: var(--font-display); }
 .field-marker span {

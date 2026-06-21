@@ -148,10 +148,11 @@
       attributionControl: true,
     });
 
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_matter/{z}/{x}/{y}{r}.png", {
-      subdomains: "abcd",
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      subdomains: "abc",
       maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      className: "map-tiles-dark",
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
 
     const bounds = [];
@@ -164,8 +165,9 @@
         iconAnchor: [8, 8],
       });
       const marker = L.marker([site.lat, site.lng], { icon }).addTo(map);
+      const photoHtml = site.photo ? `<img src="${site.photo}" alt="${site.name}" class="popup-photo" />` : "";
       marker.bindPopup(
-        `<strong>${site.name}</strong><br/>${site.description || ""}${site.year ? `<br/><span class="mono">${site.year}</span>` : ""}`
+        `${photoHtml}<strong>${site.name}</strong><br/>${site.description || ""}${site.year ? `<br/><span class="mono">${site.year}</span>` : ""}`
       );
       bounds.push([site.lat, site.lng]);
     });

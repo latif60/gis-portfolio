@@ -126,6 +126,7 @@ const SITE_DATA = {
       lng: 69.3757,
       type: "vegetation",
       year: "2025–2026",
+      photo: "assets/sites/khipro.jpg",
       description: "Supervised soil sampling and biomass estimation across the 24,000-acre Khipro Forest, collecting data from 71 sampling points to establish a carbon stock baseline for the Sindh Forest Department.",
     },
     {
@@ -134,6 +135,7 @@ const SITE_DATA = {
       lng: 68.4058,
       type: "vegetation",
       year: "2025–2026",
+      photo: "assets/sites/miani.jpg",
       description: "Carried out a full enumeration of a 4-acre compartment in Miani Forest, recording tree-level data and conducting biomass estimation for the plot.",
     },
     {
@@ -142,6 +144,7 @@ const SITE_DATA = {
       lng: 70.18,
       type: "climate",
       year: "2025–2026",
+      photo: "assets/sites/thar.jpg",
       description: "Conducted a rangeland carrying capacity and soil nutrient assessment across 29 villages for the UN-FAO funded SRAS project, benchmarking current conditions against a 2021 baseline.",
     },
     {
