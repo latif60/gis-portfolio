@@ -105,7 +105,7 @@ const SITE_DATA = {
       items: [
         { label: "Python (GDAL, rasterio, geopandas)", level: 90 },
         { label: "R (spatial stats)", level: 70 },
-               { label: "JavaScript (Earth Engine)", level: 70 },
+               { label: "JavaScript (Google Earth Engine)", level: 70 },
       ],
     },
     {
