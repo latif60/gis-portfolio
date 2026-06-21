@@ -383,6 +383,60 @@
     });
   }
 
+
+function renderGallery(data) {
+    const grid = $("#galleryGrid");
+    if (!grid || !data.gallery) return;
+    data.gallery.forEach((item, i) => {
+      const card = el(
+        "figure",
+        "gallery-item",
+        `<button type="button" class="gallery-thumb" data-index="${i}">
+           <img src="${item.image}" alt="${item.title}" loading="lazy" />
+           <span class="gallery-category mono">${item.category}</span>
+         </button>
+         <figcaption>${item.title}</figcaption>`
+      );
+      card.style.setProperty("--d", `${i * 50}ms`);
+      grid.appendChild(card);
+    });
+    grid.addEventListener("click", (e) => {
+      const btn = e.target.closest(".gallery-thumb");
+      if (!btn) return;
+      openLightbox(data.gallery[Number(btn.dataset.index)]);
+    });
+  }
+
+  function openLightbox(item) {
+    let box = $("#lightbox");
+    if (!box) {
+      box = el("div", "lightbox", "");
+      box.id = "lightbox";
+      document.body.appendChild(box);
+      box.addEventListener("click", (e) => {
+        if (e.target === box || e.target.closest(".lightbox-close")) {
+          box.classList.remove("is-open");
+          document.body.classList.remove("lightbox-open");
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") { box.classList.remove("is-open"); document.body.classList.remove("lightbox-open"); }
+      });
+    }
+    box.innerHTML = `
+      <div class="lightbox-inner">
+        <button class="lightbox-close" aria-label="Close">×</button>
+        <img src="${item.image}" alt="${item.title}" />
+        <div class="lightbox-caption">
+          <h3>${item.title}</h3>
+          <p>${item.caption || ""}</p>
+        </div>
+      </div>`;
+    box.classList.add("is-open");
+    document.body.classList.add("lightbox-open");
+  }
+
+
   function setupFooter() {
     $("#footerYear").textContent = new Date().getFullYear();
   }
@@ -395,6 +449,7 @@
       renderExpertise(SITE_DATA);
       renderSkills(SITE_DATA);
       renderProjects(SITE_DATA);
+      renderGallery(SITE_DATA); 
       renderPublications(SITE_DATA);
       renderTimeline(SITE_DATA);
       renderContact(SITE_DATA);

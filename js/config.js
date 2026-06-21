@@ -24,7 +24,7 @@ const SITE_DATA = {
     coordinates: "29.9691° N · 73.8567° E", // optional lat/long shown in the hero — use your city's coordinates or remove
     email: "latifsiyal965@gmail.com",
     phone: "+92 3063228040", // set to "" to hide
-    resumeFile: "cv.pdf", // replace assets/cv.pdf with your own PDF
+    resumeFile: "assets/cv.pdf", // replace assets/cv.pdf with your own PDF
   },
 
   /* -------------------- 2. HERO SECTION -------------------- */
@@ -215,6 +215,19 @@ const SITE_DATA = {
       link: "#",
     },
   ],
+
+
+  /* -------------------- 6B. MAP GALLERY -------------------- */
+  // category = short label shown on the thumbnail (e.g. "LULC", "Precipitation", "Climate")
+  gallery: [
+    {
+      title: "Afternoon Temperature Crisis — Pakistan",
+      category: "Climate",
+      image: "assets/gallery/pakistan_temperature.jpg",
+      caption: "Tools: Google Earth Engine, ArcGIS Pro.",
+    },
+  ],
+
 
   /* -------------------- 8. PUBLICATIONS -------------------- */
   publications: [
