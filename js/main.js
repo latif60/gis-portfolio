@@ -387,15 +387,20 @@
 function renderGallery(data) {
     const grid = $("#galleryGrid");
     if (!grid || !data.gallery) return;
+    const zoomIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>`;
     data.gallery.forEach((item, i) => {
       const card = el(
         "figure",
         "gallery-item",
         `<button type="button" class="gallery-thumb" data-index="${i}">
            <img src="${item.image}" alt="${item.title}" loading="lazy" />
-           <span class="gallery-category mono">${item.category}</span>
+           <span class="gallery-ticks" aria-hidden="true"></span>
+           <span class="gallery-zoom" aria-hidden="true">${zoomIcon}</span>
          </button>
-         <figcaption>${item.title}</figcaption>`
+         <figcaption>
+           <span class="gallery-tag mono">${item.category}</span>
+           <span class="gallery-title">${item.title}</span>
+         </figcaption>`
       );
       card.style.setProperty("--d", `${i * 50}ms`);
       grid.appendChild(card);
