@@ -155,7 +155,7 @@ const SITE_DATA = {
   ],
 
   /* -------------------- 7. PROJECTS -------------------- */
-  // link can be "#" if you don't have a live link yet
+  // link can be "#" if don't have a live link yet
   projects: [
     {
       title: "Land Cover Change Detection — 2010 to 2024",
