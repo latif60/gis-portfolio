@@ -24,7 +24,7 @@ const SITE_DATA = {
     coordinates: "29.9691° N · 73.8567° E", // optional lat/long shown in the hero — use your city's coordinates or remove
     email: "latifsiyal965@gmail.com",
     phone: "+92 3063228040", // set to "" to hide
-    resumeFile: "assets/cv.pdf", // replace assets/cv.pdf with your own PDF
+    resumeFile: "assets/A.latif_GIS_CV.pdf", // replace assets/cv.pdf with your own PDF
   },
 
   /* -------------------- 2. HERO SECTION -------------------- */
