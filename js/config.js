@@ -96,9 +96,8 @@ const SITE_DATA = {
       category: "Software & Platforms",
       items: [
         { label: "QGIS", level: 95 },
-        { label: "ArcGIS Pro", level: 85 },
+        { label: "ArcGIS Pro", level: 95 },
         { label: "Google Earth Engine", level: 90 },
-        { label: "ERDAS Imagine / ENVI", level: 75 },
       ],
     },
     {
@@ -106,8 +105,7 @@ const SITE_DATA = {
       items: [
         { label: "Python (GDAL, rasterio, geopandas)", level: 90 },
         { label: "R (spatial stats)", level: 70 },
-        { label: "SQL / PostGIS", level: 65 },
-        { label: "JavaScript (Earth Engine)", level: 70 },
+               { label: "JavaScript (Earth Engine)", level: 70 },
       ],
     },
     {
@@ -121,40 +119,38 @@ const SITE_DATA = {
     },
   ],
 
-  /* -------------------- 6. FIELD SITES MAP -------------------- */
-  // type controls marker colour: "vegetation", "water", "urban", "climate"
   fieldSites: [
     {
-      name: "Indus Delta Mangrove Survey",
-      lat: 24.1,
-      lng: 67.5,
+      name: "Khipro Forest Soil Sampling & Biomass Estimation",
+      lat: 25.8242,
+      lng: 69.3757,
       type: "vegetation",
-      year: "2023",
-      description: "Mapped mangrove cover change using Sentinel-2 time series and field plots.",
+      year: "2025–2026",
+      description: "Supervised soil sampling and biomass estimation across the 24,000-acre Khipro Forest, collecting data from 71 sampling points to establish a carbon stock baseline for the Sindh Forest Department.",
     },
     {
-      name: "Thar Desert Land Degradation Study",
-      lat: 27.2,
-      lng: 70.0,
+      name: "Miani Forest Enumeration & Biomass Estimation",
+      lat: 25.4766,
+      lng: 68.4058,
+      type: "vegetation",
+      year: "2025–2026",
+      description: "Carried out a full enumeration of a 4-acre compartment in Miani Forest, recording tree-level data and conducting biomass estimation for the plot.",
+    },
+    {
+      name: "Tharparkar Rangeland Carrying Capacity Assessment",
+      lat: 24.8209,
+      lng: 70.18,
       type: "climate",
-      year: "2022",
-      description: "Assessed desertification trends using NDVI and rainfall anomaly data.",
+      year: "2025–2026",
+      description: "Conducted a rangeland carrying capacity and soil nutrient assessment across 29 villages for the UN-FAO funded SRAS project, benchmarking current conditions against a 2021 baseline.",
     },
     {
-      name: "Indus River Flood Risk Mapping",
-      lat: 25.4,
-      lng: 68.4,
-      type: "water",
-      year: "2022",
-      description: "Flood extent mapping with Sentinel-1 SAR and DEM-based hydrological modelling.",
-    },
-    {
-      name: "Karachi Urban Heat Island Analysis",
-      lat: 24.86,
-      lng: 67.0,
-      type: "urban",
-      year: "2021",
-      description: "Land surface temperature mapping using Landsat thermal bands.",
+      name: "Sindh Forest Inventory — UNOPS Project",
+      lat: 25.8943,
+      lng: 68.5247,
+      type: "vegetation",
+      year: "2026",
+      description: "Conducted structured field data collection and survey activities across designated forest inventory sites as part of the UNOPS-funded Forest, Climate and Nature in Pakistan project.",
     },
   ],
 
