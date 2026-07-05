@@ -200,6 +200,9 @@
     const grid = $("#projectsGrid");
     (data.projects || []).forEach((p, i) => {
       const tags = (p.tags || []).map((t) => `<li>${t}</li>`).join("");
+      
+      // This line now specifically looks for the "photo" property you added
+    const imageTag = p.photo ? `<img src="${p.photo}" alt="${p.title}" class="project-image">` : "";
       const card = el(
         "article",
         "card card-project",
