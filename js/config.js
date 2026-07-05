@@ -49,7 +49,7 @@ const SITE_DATA = {
     facts: [
       { label: "Based in", value: "Hyderabad, Sindh, Pakistan" },
       { label: "Focus areas", value: "Remote sensing · GIS · Climate & land-use change" },
-      { label: "Currently", value: "Open to research & consulting roles" },
+      { label: "Currently", value: "Open to GIS, Research & consulting roles" },
       { label: "Languages", value: "English, Urdu/Sindhi" },
     ],
   },
@@ -161,12 +161,13 @@ const SITE_DATA = {
   // link can be "#" if don't have a live link yet
   projects: [
     {
-      title: "Land Cover Change Detection — 2010 to 2024",
-      year: "2024",
+      title: "Afternoon Temperature Crisis (Pakistan 2026)",
+      year: "2026",
       category: "Remote Sensing",
+      photo: "assets/projects/pakistan_temperature.jpg",
       icon: "satellite",
-      description: "Multi-temporal classification of Landsat & Sentinel-2 imagery to quantify agricultural expansion and urban sprawl over 14 years.",
-      tags: ["Google Earth Engine", "Random Forest", "Python"],
+      description: " ERA-5 Based temperature map of pakistan highlights the aftrnoon temperature of the hotest month of pakistan June-4-2026.",
+      tags: ["Google Earth Engine", "ERA-5", "ArcGIS Pro"],
       link: "#",
     },
     {
