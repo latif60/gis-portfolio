@@ -18,10 +18,9 @@ const SITE_DATA = {
   /* -------------------- 1. BASIC INFO -------------------- */
   meta: {
     name: "Abdul latif",
-    initials: "Y.N.",
     role: "GIS Analyst & Remote Sensing Researcher",
     location: "Hyderabad, Sindh, Pakistan",
-    coordinates: "29.9691° N · 73.8567° E", // optional lat/long shown in the hero — use your city's coordinates or remove
+    coordinates: "25.3792° N · 68.3683° E", // optional lat/long shown in the hero — use your city's coordinates or remove
     email: "latifsiyal965@gmail.com",
     phone: "+92 3063228040", // set to "" to hide
     resumeFile: "assets/cv.pdf", // replace assets/cv.pdf with your own PDF
@@ -29,7 +28,7 @@ const SITE_DATA = {
 
   /* -------------------- 2. HERO SECTION -------------------- */
   hero: {
-    tagline: "I translate satellite imagery and spatial data into evidence for climate, land-use, and environmental decision-making — combining cartography, statistics, and field observation.",
+    tagline: "I translate satellite imagery and spatial data into evidence for climate, land use, and environmental decision making combining cartography, statistics, and field observation.",
     stats: [
       { value: "3+", label: "Years in GIS & RS" },
       { value: "2+", label: "Projects mapped" },
@@ -44,7 +43,7 @@ const SITE_DATA = {
     paragraphs: [
       "I'm an environmental researcher focused on Geographic Information Systems (GIS) and remote sensing, working at the intersection of satellite Earth observation, spatial statistics, and field-based environmental monitoring.",
       "My work spans land use and land cover change detection, vegetation and water resource monitoring, climate risk mapping, and building decision-support tools for researchers, NGOs, and government agencies.",
-      "I'm especially interested in open and reproducible geospatial workflows — Google Earth Engine, Python (GDAL, rasterio, geopandas), and QGIS — that make environmental data accessible beyond the research lab.",
+      "I'm especially interested in open and reproducible geospatial workflows Google Earth Engine, Python (GDAL, rasterio, geopandas), and QGIS — that make environmental data accessible beyond the research lab.",
     ],
     facts: [
       { label: "Based in", value: "Hyderabad, Sindh, Pakistan" },
@@ -161,12 +160,12 @@ const SITE_DATA = {
   // link can be "#" if don't have a live link yet
   projects: [
     {
-      title: "Afternoon Temperature Crisis (Pakistan 2026)",
+      title: "Afternoon Temperature Crisis Pakistan 2026",
       year: "2026",
       category: "Remote Sensing",
       photo: "assets/projects/pakistan_temperature.jpg",
       icon: "satellite",
-      description: " ERA-5 Based temperature map of pakistan highlights the aftrnoon temperature of the hotest month of pakistan June-4-2026.",
+      description: " ERA-5 Based temperature map of pakistan highlights the afternoon temperature of the hotest month of pakistan June-4-2026.",
       tags: ["Google Earth Engine", "ERA-5", "ArcGIS Pro"],
       link: "#",
     },
@@ -198,12 +197,13 @@ const SITE_DATA = {
       link: "#",
     },
     {
-      title: "Urban Heat Island Mapping",
-      year: "2021",
+      title: "Urban Heat Island Map Of Karachi",
+      year: "2026",
       category: "Climate",
+      photo: "assets/projects/KARACHI_UHI_MAP.jpg",
       icon: "globe",
       description: "Land surface temperature retrieval from Landsat thermal bands to identify and rank urban heat hotspots for green-infrastructure planning.",
-      tags: ["Landsat 8/9", "LST", "Spatial Statistics"],
+      tags: ["Landsat-9", "LST", "Spatial Statistics"],
       link: "#",
     },
     {
@@ -234,74 +234,75 @@ const SITE_DATA = {
   publications: [
     {
       title: "Mapping mangrove degradation using multi-temporal Sentinel-2 imagery in the Indus Delta",
-      authors: "Your Name, Co-Author A., Co-Author B.",
+      authors: "Author, Co-Author A., Co-Author B.",
       venue: "Journal of Environmental Remote Sensing",
-      year: "2024",
+      year: "0000",
       link: "#",
     },
-    {
-      title: "A random forest approach to land cover classification in semi-arid landscapes",
-      authors: "Your Name, Co-Author C.",
-      venue: "International Journal of Applied Earth Observation and Geoinformation",
-      year: "2023",
-      link: "#",
-    },
-    {
-      title: "SAR-based flood mapping for early warning in data-scarce river basins",
-      authors: "Your Name",
-      venue: "Proceedings of the Asian Conference on Remote Sensing",
-      year: "2022",
-      link: "#",
-    },
-    {
-      title: "Urban heat island dynamics in a rapidly growing South Asian city",
-      authors: "Your Name, Co-Author D.",
-      venue: "Technical Report, Department of Geography",
-      year: "2021",
-      link: "#",
-    },
+    
   ],
 
   /* -------------------- 9. EXPERIENCE & EDUCATION TIMELINE -------------------- */
   // type: "work" or "education" — controls the icon used
-  timeline: [
+  experience: [
     {
       type: "work",
-      period: "2023 — Present",
-      title: "GIS & Remote Sensing Researcher",
-      org: "Your Organization",
-      description: "Leading geospatial analysis for environmental monitoring projects, from data acquisition to policy-facing reporting.",
+      period: "MAR-2026 — Present",
+      title: "GIS Specialist",
+      org: "Eco Nature Consultancy (ENC)",
+      description: "Leading geospatial analysis for environmental monitoring projects, from data acquisition to policy facing reporting.",
     },
+
+     {
+      type: "work",
+      period: "DEC-2025 — MAR-2026",
+      title: "Forestry Intern",
+      org: "Sindh Forest and Wildlife Training School Miani, Hyderabad",
+      description: "Gained hands on experience in forest and rangeland management, field surveys, sampling, and FGDs. Applied GIS tools for LULC mapping, vegetation indices, and carbon stock estimation, linking field data with spatial analysis for practical environmental insights.",
+    },
+
     {
       type: "work",
-      period: "2021 — 2023",
-      title: "Remote Sensing Analyst",
-      org: "Previous Organization",
-      description: "Built automated Earth Engine pipelines for land cover and vegetation monitoring across multiple field sites.",
+      period: "JAN-2026 (Contract)",
+      title: "Field Enumerator",
+      org: "GIS Plus",
+      description: " Worked as a Field Enumerator for the UNOPS Project – Forest, Climate and Nature in Pakistan, I worked closely with my team to execute comprehensive field data collection and survey activities for the Sindh Field Inventory.",
     },
+
+{
+      type: "work",
+      period: "JAN-2025 — JAN-2026",
+      title: "GIS & Remote Sensing Research Assistant",
+      org: "University of Sindh Jamshoro",
+      description: [
+        "Provided ongoing technical GIS support and spatial data analysis across multiple academic research projects to strengthen research methodologies.",
+        "Developed high quality thematic maps and spatial datasets using ArcGIS Pro and QGIS.",
+        "Conducted statistical analysis and data interpretation to verify environmental research findings.",
+        "Translated geospatial results into clear summaries supporting scientific reports and research papers."
+      ].join("<br>"),
+    },
+
+    ],
+
+    education: [
     {
       type: "education",
-      period: "2019 — 2021",
-      title: "M.Sc. in Remote Sensing & GIS",
-      org: "Your University",
-      description: "Thesis on land-use change detection using multi-sensor satellite time series.",
+      period: "2022 — 2026",
+      title: "BS Environmental Science",
+      CGPA: "2.93",
+      percentage: "73.5%",
+      org: "University of Sindh Jamshoro",
+      description: "Thesis : Assessment of MODIS MAIAC AOD Retrievals over a Complex Semi-Arid Region: Geometric Dependencies, Aerosol Typing, and Precipitation Trends.",
     },
-    {
-      type: "education",
-      period: "2015 — 2019",
-      title: "B.Sc. in Environmental Science / Geography",
-      org: "Your University",
-      description: "Specialized coursework in cartography, geomorphology, and environmental policy.",
-    },
+
   ],
 
   /* -------------------- 10. CONTACT & SOCIAL LINKS -------------------- */
   // icon options: "linkedin", "github", "researchgate", "orcid", "mail", "x", "scholar"
   social: [
-    { icon: "linkedin", label: "LinkedIn", url: "https://linkedin.com/in/yourname" },
-    { icon: "researchgate", label: "ResearchGate", url: "https://researchgate.net/profile/yourname" },
+    { icon: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/abdul-latif-078a31243/" },
     { icon: "scholar", label: "Google Scholar", url: "https://scholar.google.com" },
     { icon: "github", label: "GitHub", url: "https://github.com/yourname" },
-    { icon: "orcid", label: "ORCID", url: "https://orcid.org/0000-0000-0000-0000" },
+    
   ],
 };

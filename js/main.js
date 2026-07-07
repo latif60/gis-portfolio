@@ -259,9 +259,9 @@
     });
   }
 
-  function renderTimeline(data) {
-    const wrap = $("#timeline");
-    (data.timeline || []).forEach((item) => {
+function renderTimeline(items, containerId) {
+    const wrap = $(containerId);
+    (items || []).forEach((item) => {
       const node = el(
         "div",
         `timeline-item timeline-${item.type}`,
@@ -269,13 +269,18 @@
          <div class="timeline-content">
            <p class="mono timeline-period">${item.period}</p>
            <h3>${item.title}</h3>
+           ${item.CGPA ? `<p class="timeline-cgpa">CGPA: ${item.CGPA}</p>` : ""}
+          ${item.percentage ? `<p class="timeline-percentage">Percentage: ${item.percentage}</p>` : ""}
            <p class="timeline-org">${item.org}</p>
            <p>${item.description}</p>
          </div>`
+         
       );
       wrap.appendChild(node);
     });
+  
   }
+
 
   function renderContact(data) {
     const details = $("#contactDetails");
@@ -481,7 +486,8 @@ function renderGallery(data) {
       initLightbox();
       renderGallery(SITE_DATA); 
       renderPublications(SITE_DATA);
-      renderTimeline(SITE_DATA);
+      renderTimeline(SITE_DATA.experience, "#timeline-experience");
+      renderTimeline(SITE_DATA.education, "#timeline-education");
       renderContact(SITE_DATA);
       setupFooter();
       setupNav();

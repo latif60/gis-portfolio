@@ -388,6 +388,12 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
 .timeline-org { color: var(--terra); font-size: 0.92rem; margin: 0.25rem 0 0.6rem; }
 .timeline-education .timeline-org { color: var(--canopy); }
 .timeline-content p:last-child { color: var(--text-light-bg-muted); font-size: 0.95rem; }
+#education {
+  padding-top: 0.2rem;
+}
+#experience {
+  padding-bottom: 1.5rem;
+}
 
 /* ============================== CONTACT ============================== */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
