@@ -210,6 +210,7 @@
            <div class="card-icon">${getIcon(p.icon)}</div>
            <span class="mono card-year">${p.year}</span>
          </div>
+         ${imageTag}
          <p class="card-category mono">${p.category}</p>
          <h3>${p.title}</h3>
          <p>${p.description}</p>
