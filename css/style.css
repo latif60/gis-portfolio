@@ -510,8 +510,38 @@ body.lightbox-open { overflow: hidden; }
 /* --- Added for Project Images --- */
 .project-image {
   width: 100%;
-  height: 200px; 
-  object-fit: cover; 
+  height: 220px;
+  object-fit: contain;
+  background: #f4f1ea;
   border-radius: 8px;
   margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+/* --- Lightbox popup --- */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.lightbox-overlay.active { display: flex; }
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.lightbox-overlay .lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
 }

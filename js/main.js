@@ -202,7 +202,7 @@
       const tags = (p.tags || []).map((t) => `<li>${t}</li>`).join("");
       
       // This line now specifically looks for the "photo" property you added
-    const imageTag = p.photo ? `<img src="${p.photo}" alt="${p.title}" class="project-image">` : "";
+      const imageTag = p.photo ? `<img src="${p.photo}" alt="${p.title}" class="project-image">` : "";
       const card = el(
         "article",
         "card card-project",
@@ -214,11 +214,31 @@
          <p class="card-category mono">${p.category}</p>
          <h3>${p.title}</h3>
          <p>${p.description}</p>
-         <ul class="tag-list">${tags}</ul>
-         <a class="card-link" href="${p.link || "#"}">View case study →</a>`
+         <ul class="tag-list">${tags}</ul>`
       );
       card.style.setProperty("--d", `${i * 60}ms`);
       grid.appendChild(card);
+    });
+  }
+
+  function initLightbox() {
+    const overlay = document.createElement("div");
+    overlay.className = "lightbox-overlay";
+    overlay.innerHTML = `<span class="lightbox-close">&times;</span><img src="" alt="">`;
+    document.body.appendChild(overlay);
+
+    const overlayImg = overlay.querySelector("img");
+
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("active");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("project-image")) {
+        overlayImg.src = e.target.src;
+        overlayImg.alt = e.target.alt;
+        overlay.classList.add("active");
+      }
     });
   }
 
@@ -458,6 +478,7 @@ function renderGallery(data) {
       renderExpertise(SITE_DATA);
       renderSkills(SITE_DATA);
       renderProjects(SITE_DATA);
+      initLightbox();
       renderGallery(SITE_DATA); 
       renderPublications(SITE_DATA);
       renderTimeline(SITE_DATA);
