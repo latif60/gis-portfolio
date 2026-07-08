@@ -179,12 +179,17 @@ const SITE_DATA = {
       link: "#",
     },
     {
-      title: "Mangrove Ecosystem Health Monitoring",
-      year: "2023",
-      category: "Environmental Monitoring",
+      title: "Supporting Maps for plantation site documentation",
+      year: "2026",
+      category: "Remote sensing",
+      photos: [
+  "assets/projects/final_lst_lahore.jpg",
+  "assets/projects/final_NDMI_lahore.jpg",
+  "assets/projects/final_NDMI_lahore.jpg"
+],
       icon: "leaf",
-      description: "Time-series NDVI analysis to track mangrove forest health and identify degradation hotspots along the coastline.",
-      tags: ["NDVI", "Time Series", "Field Validation"],
+      description: "Created three maps for a client for his river side plantation documentation of lahore.",
+      tags: ["NDMI","LST","NDVI", "ArcGIS Pro"],
       link: "#",
     },
     {

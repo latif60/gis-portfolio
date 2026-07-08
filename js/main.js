@@ -200,9 +200,15 @@
     const grid = $("#projectsGrid");
     (data.projects || []).forEach((p, i) => {
       const tags = (p.tags || []).map((t) => `<li>${t}</li>`).join("");
-      
-      // This line now specifically looks for the "photo" property you added
-      const imageTag = p.photo ? `<img src="${p.photo}" alt="${p.title}" class="project-image">` : "";
+
+      // Supports either p.photo (single image) or p.photos (array of images)
+      const photoList = p.photos || (p.photo ? [p.photo] : []);
+      const imageTag = photoList.length
+        ? `<div class="project-gallery">
+             ${photoList.map(src => `<img src="${src}" alt="${p.title}" class="project-image">`).join("")}
+           </div>`
+        : "";
+
       const card = el(
         "article",
         "card card-project",
@@ -220,7 +226,6 @@
       grid.appendChild(card);
     });
   }
-
   function initLightbox() {
     const overlay = document.createElement("div");
     overlay.className = "lightbox-overlay";

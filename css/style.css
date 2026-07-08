@@ -524,6 +524,18 @@ body.lightbox-open { overflow: hidden; }
   cursor: pointer;
 }
 
+/* --- Added for Multiple Project Photos (Gallery) --- */
+.project-gallery {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.project-gallery .project-image {
+  width: calc(50% - 0.25rem);
+  height: 140px;
+}
+
 /* --- Lightbox popup --- */
 .lightbox-overlay {
   display: none;
