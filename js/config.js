@@ -179,7 +179,7 @@ const SITE_DATA = {
       link: "#",
     },
     {
-      title: "Supporting Maps for plantation site documentation",
+      title: "Supporting Maps for plantation projects documentation",
       year: "2026",
       category: "Remote sensing",
       photos: [
