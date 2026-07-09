@@ -185,7 +185,7 @@ const SITE_DATA = {
       photos: [
   "assets/projects/final_lst_lahore.jpg",
   "assets/projects/final_NDMI_lahore.jpg",
-  "assets/projects/final_NDMI_lahore.jpg"
+  "assets/projects/final_NDVI_lahore.jpg"
 ],
       icon: "leaf",
       description: "Created three maps for a client for his river side plantation documentation of lahore.",
