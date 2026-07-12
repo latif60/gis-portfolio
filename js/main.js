@@ -249,7 +249,7 @@ function renderCaseStudy(data) {
 
     const photoList = project.photos || (project.photo ? [project.photo] : []);
     $("#csGallery").innerHTML = photoList
-      .map(src => `<img src="${src}" alt="${project.title}" class="project-image cs-image">`)
+      .map(src => `<div class="cs-image-frame"><img src="${src}" alt="${project.title}" class="project-image cs-image"></div>`)
       .join("");
   }
 
