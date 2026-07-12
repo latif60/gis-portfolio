@@ -524,6 +524,48 @@ body.lightbox-open { overflow: hidden; }
   cursor: pointer;
 }
 
+.project-badge {
+  display: inline-block;
+  background: #eef2ff;
+  color: #3b4fd9;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
+}
+
+.cs-back {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--terra);
+  font-weight: 600;
+}
+.cs-hero {
+  margin-bottom: 2.5rem;
+}
+.cs-hero-text h1 {
+  font-size: 2.2rem;
+  margin: 0.6rem 0 1rem;
+}
+.cs-description {
+  color: var(--text-light-bg-muted);
+  font-size: 1.05rem;
+  max-width: 65ch;
+  margin-bottom: 1.2rem;
+}
+.cs-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+.cs-image {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  cursor: pointer;
+}
+
 /* --- Added for Multiple Project Photos (Gallery) --- */
 .project-gallery {
   display: flex;

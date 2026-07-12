@@ -201,13 +201,14 @@
     (data.projects || []).forEach((p, i) => {
       const tags = (p.tags || []).map((t) => `<li>${t}</li>`).join("");
 
-      // Supports either p.photo (single image) or p.photos (array of images)
       const photoList = p.photos || (p.photo ? [p.photo] : []);
       const imageTag = photoList.length
         ? `<div class="project-gallery">
              ${photoList.map(src => `<img src="${src}" alt="${p.title}" class="project-image">`).join("")}
            </div>`
         : "";
+
+      const badgeTag = p.badge ? `<span class="project-badge">${p.badge}</span>` : "";
 
       const card = el(
         "article",
@@ -217,15 +218,41 @@
            <span class="mono card-year">${p.year}</span>
          </div>
          ${imageTag}
-         <p class="card-category mono">${p.category}</p>
+         ${badgeTag}
          <h3>${p.title}</h3>
          <p>${p.description}</p>
-         <ul class="tag-list">${tags}</ul>`
+         <a class="card-link" href="case-study.html?project=${p.slug}">View Case Study →</a>`
       );
       card.style.setProperty("--d", `${i * 60}ms`);
       grid.appendChild(card);
     });
   }
+
+function renderCaseStudy(data) {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("project");
+    const project = (data.projects || []).find(p => p.slug === slug);
+
+    if (!project) {
+      $("#main").innerHTML = `<div class="container section"><p>Project not found.</p><a href="index.html#projects">← Back to Projects</a></div>`;
+      return;
+    }
+
+    document.title = `${project.title} — Case Study`;
+
+    if (project.badge) $("#csBadge").textContent = project.badge;
+    $("#csTitle").textContent = project.title;
+    $("#csDescription").textContent = project.description;
+
+    const tags = (project.tags || []).map(t => `<li>${t}</li>`).join("");
+    $("#csTags").innerHTML = tags;
+
+    const photoList = project.photos || (project.photo ? [project.photo] : []);
+    $("#csGallery").innerHTML = photoList
+      .map(src => `<img src="${src}" alt="${project.title}" class="project-image cs-image">`)
+      .join("");
+  }
+
   function initLightbox() {
     const overlay = document.createElement("div");
     overlay.className = "lightbox-overlay";
@@ -483,6 +510,13 @@ function renderGallery(data) {
   /* ----------------------------- init ----------------------------- */
   function init() {
     try {
+      if (document.body.dataset.page === "case-study") {
+        renderCaseStudy(SITE_DATA);
+        initLightbox();
+        setupNav();
+        setupFooter();
+        return;
+      }
       renderHero(SITE_DATA);
       renderAbout(SITE_DATA);
       renderExpertise(SITE_DATA);
@@ -490,7 +524,7 @@ function renderGallery(data) {
       renderProjects(SITE_DATA);
       initLightbox();
       renderGallery(SITE_DATA); 
-      renderPublications(SITE_DATA);
+      // renderPublications(SITE_DATA);
       renderTimeline(SITE_DATA.experience, "#timeline-experience");
       renderTimeline(SITE_DATA.education, "#timeline-education");
       renderContact(SITE_DATA);
@@ -498,7 +532,7 @@ function renderGallery(data) {
       setupNav();
       setupReveal();
       setupContactForm(SITE_DATA);
-      renderMap(SITE_DATA); // after layout settles, so Leaflet measures the container correctly
+      renderMap(SITE_DATA);
     } catch (err) {
       console.error("Portfolio failed to initialise:", err);
     }

@@ -160,6 +160,8 @@ const SITE_DATA = {
   // link can be "#" if don't have a live link yet
   projects: [
     {
+      slug: "afternoon-temperature-crisis",
+      badge: "ERA-5 / MODIS",
       title: "Afternoon Temperature Crisis Pakistan 2026",
       year: "2026",
       category: "Remote Sensing",
@@ -170,6 +172,8 @@ const SITE_DATA = {
       link: "#",
     },
     {
+      slug: "flood-hazard-mapping",
+      badge: "SAR / DEM",
       title: "Flood Hazard Mapping for the Lower Indus Basin",
       year: "2023",
       category: "Hydrology",
@@ -179,6 +183,8 @@ const SITE_DATA = {
       link: "#",
     },
     {
+      slug: "plantation-maps",
+      badge: "NDMI / LST / NDVI",
       title: "Supporting Maps for plantation projects documentation",
       year: "2026",
       category: "Remote sensing",
@@ -193,6 +199,8 @@ const SITE_DATA = {
       link: "#",
     },
     {
+      slug: "uav-crop-health-assessment",
+      badge: "UAV / Multispectral",
       title: "UAV-Based Crop Health Assessment",
       year: "2022",
       category: "Agriculture",
@@ -202,6 +210,8 @@ const SITE_DATA = {
       link: "#",
     },
     {
+      slug: "urban-heat-island-map",
+      badge: "Landsat / LST",
       title: "Urban Heat Island Map Of Karachi",
       year: "2026",
       category: "Climate",
@@ -212,6 +222,8 @@ const SITE_DATA = {
       link: "#",
     },
     {
+      slug: "watershed-delineation",
+      badge: "DEM / HEC-RAS",
       title: "Watershed Delineation & Erosion Risk Model",
       year: "2021",
       category: "GIS Modelling",
