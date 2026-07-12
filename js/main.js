@@ -212,11 +212,7 @@
       const card = el(
         "article",
         "card card-project",
-        `<div class="card-project-top">
-           <div class="card-icon">${getIcon(p.icon)}</div>
-           <span class="mono card-year">${p.year}</span>
-         </div>
-         ${imageTag}
+        `${imageTag}
          ${badgeTag}
          <h3>${p.title}</h3>
          <p>${p.description}</p>

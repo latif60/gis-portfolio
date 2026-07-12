@@ -538,12 +538,11 @@ body.lightbox-open { overflow: hidden; }
 
 .project-badge {
   display: inline-block;
-  background: #eef2ff;
-  color: #3b4fd9;
+  background: none;
+  color: #000;
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 0.3rem 0.7rem;
-  border-radius: 6px;
+  padding: 0;
   margin-bottom: 0.6rem;
 }
 
