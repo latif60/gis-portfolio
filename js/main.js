@@ -202,10 +202,9 @@
       const tags = (p.tags || []).map((t) => `<li>${t}</li>`).join("");
 
       const photoList = p.photos || (p.photo ? [p.photo] : []);
-      const imageTag = photoList.length
-        ? `<div class="project-gallery">
-             ${photoList.map(src => `<img src="${src}" alt="${p.title}" class="project-image">`).join("")}
-           </div>`
+      const coverPhoto = photoList[0];
+      const imageTag = coverPhoto
+        ? `<img src="${coverPhoto}" alt="${p.title}" class="card-cover">`
         : "";
 
       const badgeTag = p.badge ? `<span class="project-badge">${p.badge}</span>` : "";
@@ -248,8 +247,15 @@ function renderCaseStudy(data) {
     $("#csTags").innerHTML = tags;
 
     const photoList = project.photos || (project.photo ? [project.photo] : []);
+    const page = document.querySelector(".case-study-page");
+    page.classList.toggle("single-photo", photoList.length === 1);
+    page.classList.toggle("multi-photo", photoList.length > 1);
+
     $("#csGallery").innerHTML = photoList
-      .map(src => `<div class="cs-image-frame"><img src="${src}" alt="${project.title}" class="project-image cs-image"></div>`)
+      .map(src => `<div class="cs-image-frame">
+        <img src="${src}" alt="${project.title}" class="cs-image"
+             onload="this.closest('.cs-image-frame').classList.add(this.naturalWidth >= this.naturalHeight ? 'landscape' : 'portrait')">
+      </div>`)
       .join("");
   }
 
@@ -266,7 +272,7 @@ function renderCaseStudy(data) {
     });
 
     document.addEventListener("click", (e) => {
-      if (e.target.classList.contains("project-image")) {
+      if (e.target.classList.contains("cs-image")) {
         overlayImg.src = e.target.src;
         overlayImg.alt = e.target.alt;
         overlay.classList.add("active");

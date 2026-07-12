@@ -513,31 +513,27 @@ body.lightbox-open { overflow: hidden; }
   #fieldMap { height: 360px; }
 }
 
-/* --- Added for Project Images --- */
-.project-image {
+
+/* --- Card cover photo (grid) --- */
+.card-cover {
   width: 100%;
-  height: 180px;
+  height: 170px;
   object-fit: cover;
   object-position: center;
   border-radius: 8px;
-  margin-bottom: 1rem;
-  cursor: pointer;
+  margin-bottom: 0.8rem;
+  display: block;
 }
 
-.cs-image-frame {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+/* --- Keep cards tight, align "View Case Study" at bottom evenly --- */
+.card-project {
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 1.4rem 1.6rem;
 }
-.cs-image-frame .cs-image {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 8px;
-  cursor: pointer;
+.card-project .card-link {
+  margin-top: auto;
+  padding-top: 0.8rem;
 }
 
 .project-badge {
@@ -557,9 +553,6 @@ body.lightbox-open { overflow: hidden; }
   color: var(--terra);
   font-weight: 600;
 }
-.cs-hero {
-  margin-bottom: 2.5rem;
-}
 .cs-hero-text h1 {
   font-size: 2.2rem;
   margin: 0.6rem 0 1rem;
@@ -570,28 +563,47 @@ body.lightbox-open { overflow: hidden; }
   max-width: 65ch;
   margin-bottom: 1.2rem;
 }
+
+/* --- Case study layout --- */
+.cs-layout {
+  margin-bottom: 2rem;
+}
+@media (min-width: 900px) {
+  .case-study-page.single-photo .cs-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+
 .cs-gallery {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
-.cs-image {
-  width: 100%;
-  height: auto;
-  max-height: 600px;
-  cursor: pointer;
-}
 
-/* --- Added for Multiple Project Photos (Gallery) --- */
-.project-gallery {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
+.cs-image-frame {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
 }
-.project-gallery .project-image {
-  width: calc(50% - 0.25rem);
-  height: 130px;
+.cs-image-frame .cs-image {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: zoom-in;
+  display: block;
+}
+.cs-image-frame.landscape .cs-image {
+  aspect-ratio: 16 / 9;
+}
+.cs-image-frame.portrait .cs-image {
+  aspect-ratio: 3 / 4;
+  max-height: 480px;
+  margin: 0 auto;
 }
 
 /* --- Lightbox popup --- */
