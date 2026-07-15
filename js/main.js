@@ -148,10 +148,15 @@
       attributionControl: true,
     });
 
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+      maxZoom: 19,
+      attribution: "Tiles &copy; Esri — Source: Esri, Maxar, Earthstar Geographics, and the GIS community",
+    }).addTo(map);
+
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png", {
       subdomains: "abcd",
       maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      pane: "shadowPane",
     }).addTo(map);
 
     const markerColor = "#3AA0FF";
@@ -169,7 +174,8 @@
       const marker = L.marker([site.lat, site.lng], { icon }).addTo(map);
       const photoHtml = site.photo ? `<img src="${site.photo}" alt="${site.name}" class="popup-photo" />` : "";
       marker.bindPopup(
-        `${photoHtml}<strong>${site.name}</strong><br/>${site.description || ""}${site.year ? `<br/><span class="mono">${site.year}</span>` : ""}`
+        `${photoHtml}<strong>${site.name}</strong><br/>${site.description || ""}${site.year ? `<br/><span class="mono">${site.year}</span>` : ""}`,
+        { autoPanPadding: [40, 40], autoPanPaddingTopLeft: [20, 100] }
       );
       bounds.push([site.lat, site.lng]);
       markers.push(marker);
@@ -205,7 +211,7 @@
         item.type = "button";
         item.addEventListener("click", () => {
           map.flyTo([site.lat, site.lng], 9, { duration: 0.8 });
-          markers[i].openPopup();
+          map.once("moveend", () => markers[i].openPopup());
         });
         sidebar.appendChild(item);
       });
