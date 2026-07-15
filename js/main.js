@@ -138,7 +138,7 @@
     });
   }
 
-  function renderMap(data) {
+ function renderMap(data) {
     const sites = data.fieldSites || [];
     const mapEl = $("#fieldMap");
     if (!mapEl || !sites.length || typeof L === "undefined") return;
@@ -148,19 +148,21 @@
       attributionControl: true,
     });
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      subdomains: "abc",
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+      subdomains: "abcd",
       maxZoom: 19,
-      className: "map-tiles-dark",
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     }).addTo(map);
 
+    const markerColor = "#3AA0FF";
+
     const bounds = [];
+    const markers = [];
+
     sites.forEach((site) => {
-      const color = MARKER_COLORS[site.type] || "#C97D3A";
       const icon = L.divIcon({
         className: "field-marker",
-        html: `<span style="background:${color}"></span>`,
+        html: `<span style="background:${markerColor}"></span>`,
         iconSize: [16, 16],
         iconAnchor: [8, 8],
       });
@@ -170,6 +172,7 @@
         `${photoHtml}<strong>${site.name}</strong><br/>${site.description || ""}${site.year ? `<br/><span class="mono">${site.year}</span>` : ""}`
       );
       bounds.push([site.lat, site.lng]);
+      markers.push(marker);
     });
 
     if (bounds.length === 1) {
@@ -178,22 +181,35 @@
       map.fitBounds(bounds, { padding: [40, 40] });
     }
 
-    // Re-enable scroll zoom only once the user clicks into the map (nicer page-scroll behaviour)
     map.on("focus", () => map.scrollWheelZoom.enable());
     map.on("blur", () => map.scrollWheelZoom.disable());
 
-    // Legend
-    const legendWrap = $("#mapLegend");
-    const usedTypes = [...new Set(sites.map((s) => s.type))];
-    usedTypes.forEach((type) => {
-      legendWrap.appendChild(
-        el(
-          "li",
-          null,
-          `<span class="dot" style="background:${MARKER_COLORS[type] || "#C97D3A"}"></span> ${MARKER_LABELS[type] || type}`
-        )
-      );
-    });
+    L.control.scale({ metric: true, imperial: false, position: "bottomright" }).addTo(map);
+
+    const coordsEl = $("#mapCoords");
+    if (coordsEl) {
+      map.on("mousemove", (e) => {
+        coordsEl.textContent = `${e.latlng.lat.toFixed(4)} N, ${e.latlng.lng.toFixed(4)} E`;
+      });
+    }
+
+    const sidebar = $("#mapSidebar");
+    if (sidebar) {
+      sidebar.innerHTML = "";
+      sites.forEach((site, i) => {
+        const item = el(
+          "button",
+          "map-site-item",
+          `<span class="dot" style="background:${markerColor}"></span><span>${site.name}</span>`
+        );
+        item.type = "button";
+        item.addEventListener("click", () => {
+          map.flyTo([site.lat, site.lng], 9, { duration: 0.8 });
+          markers[i].openPopup();
+        });
+        sidebar.appendChild(item);
+      });
+    }
   }
 
   function renderProjects(data) {
