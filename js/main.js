@@ -210,9 +210,12 @@
         );
         item.type = "button";
         item.addEventListener("click", () => {
+          sidebar.querySelectorAll(".map-site-item").forEach((b) => b.classList.remove("active"));
+          item.classList.add("active");
           map.flyTo([site.lat, site.lng], 9, { duration: 0.8 });
           map.once("moveend", () => markers[i].openPopup());
         });
+        if (i === 0) item.classList.add("active");
         sidebar.appendChild(item);
       });
     }

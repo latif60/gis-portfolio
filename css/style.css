@@ -634,15 +634,33 @@ body.lightbox-open { overflow: hidden; }
 }
 
 
+.map-section {
+  padding: 4rem 0;
+}
+
+.map-panel {
+  background: #0d1420;
+  border: 1px solid #232c3a;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.map-panel-header {
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid #232c3a;
+}
+.map-panel-header h2 {
+  color: #fff;
+  margin: 0 0 0.4rem;
+}
+.map-panel-header .section-lede {
+  color: #8b95a3;
+  margin: 0;
+}
+
 .map-layout {
   display: grid;
   grid-template-columns: 240px 1fr;
-  gap: 0;
-  background: #0d1117;
-  border: 1px solid #2a313c;
-  border-radius: 14px;
-  overflow: hidden;
-  max-width: 100%;
 }
 @media (max-width: 760px) {
   .map-layout { grid-template-columns: 1fr; }
@@ -651,12 +669,40 @@ body.lightbox-open { overflow: hidden; }
 .map-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding: 1rem;
+  gap: 4px;
+  padding: 1.25rem;
   max-height: 560px;
   overflow-y: auto;
-  background: #12171f;
-  border-right: 1px solid #2a313c;
+  border-right: 1px solid #232c3a;
+}
+
+.map-site-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  text-align: left;
+  color: #a7b0bd;
+  font-size: 0.9rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.map-site-item:hover {
+  background: rgba(255,255,255,0.05);
+}
+.map-site-item.active {
+  background: #1b2534;
+  border: 1px solid #2e3b4d;
+  color: #fff;
+  font-weight: 500;
+}
+.map-site-item .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .map-wrap {
@@ -666,4 +712,28 @@ body.lightbox-open { overflow: hidden; }
 .map-wrap #fieldMap {
   height: 100%;
   width: 100%;
+}
+
+.map-coords {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-family: monospace;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  z-index: 400;
+  pointer-events: none;
+}
+
+.leaflet-control-scale {
+  margin-bottom: 12px !important;
+  margin-right: 12px !important;
+}
+.leaflet-control-scale-line {
+  background: rgba(0,0,0,0.55) !important;
+  color: #fff !important;
+  border-color: #fff !important;
 }
