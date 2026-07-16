@@ -646,7 +646,7 @@ body.lightbox-open { overflow: hidden; }
 }
 
 .map-panel-header {
-  padding: 2rem 2rem 1.5rem;
+  padding: 2rem 2.5rem 1.75rem;
   border-bottom: 1px solid #232c3a;
 }
 .map-panel-header h2 {
@@ -669,9 +669,9 @@ body.lightbox-open { overflow: hidden; }
 .map-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 1.25rem;
-  max-height: 560px;
+  gap: 6px;
+  padding: 1.5rem 1.25rem;
+  max-height: 620px;
   overflow-y: auto;
   border-right: 1px solid #232c3a;
 }
@@ -684,8 +684,9 @@ body.lightbox-open { overflow: hidden; }
   border: none;
   text-align: left;
   color: #a7b0bd;
-  font-size: 0.9rem;
-  padding: 0.7rem 0.8rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  padding: 0.85rem 1rem;
   border-radius: 10px;
   cursor: pointer;
 }
