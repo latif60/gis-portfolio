@@ -232,11 +232,13 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
 
 .hero-inner { position: relative; z-index: 1; padding: 4rem 0; width: 100%; }
 .eyebrow { display: block; font-size: 0.82rem; margin-bottom: 1.5rem; }
-.hero-title { display: flex; flex-direction: column; gap: 0.5rem; }
-.hero-title #heroName {
+.hero-greeting {
+  color: var(--text-light-bg);
   font-size: clamp(2.6rem, 7vw, 5rem);
   font-weight: 700;
-  letter-spacing: -0.01em;
+}
+.hero-greeting #heroName {
+  color: var(--terra);
 }
 .hero-role {
   font-family: var(--font-body);
@@ -760,3 +762,5 @@ body.lightbox-open { overflow: hidden; }
   color: #fff !important;
   border-color: #fff !important;
 }
+
+.role-prefix { color: var(--terra); }
