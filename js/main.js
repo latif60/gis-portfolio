@@ -111,7 +111,7 @@ function initRoleTypewriter() {
         el.textContent = current.slice(0, charIndex);
         if (charIndex === 0) { deleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; }
       }
-      setTimeout(tick, deleting ? 40 : 70);
+      setTimeout(tick, deleting ? 25 : 45);
     }
     tick();
   }
