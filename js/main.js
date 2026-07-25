@@ -72,7 +72,6 @@
   function renderHero(data) {
     $("#brandInitials").textContent = data.meta.initials;
     $("#heroName").textContent = data.meta.name;
-    $("#heroRole").textContent = data.meta.role;
     $("#heroTagline").textContent = data.hero.tagline;
     $("#footerName").textContent = data.meta.name;
 
@@ -92,6 +91,29 @@
 
     const resumeLink = $('.hero-actions a[download]');
     if (resumeLink && data.meta.resumeFile) resumeLink.setAttribute("href", data.meta.resumeFile);
+  }
+
+
+function initRoleTypewriter() {
+    const el = $("#heroRole");
+    if (!el) return;
+    const phrases = ["GIS Specialist", "Environmental Researcher", "Soil & Biomass Analyst"];
+    let phraseIndex = 0, charIndex = 0, deleting = false;
+
+    function tick() {
+      const current = phrases[phraseIndex];
+      if (!deleting) {
+        charIndex++;
+        el.textContent = current.slice(0, charIndex);
+        if (charIndex === current.length) { deleting = true; setTimeout(tick, 1400); return; }
+      } else {
+        charIndex--;
+        el.textContent = current.slice(0, charIndex);
+        if (charIndex === 0) { deleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; }
+      }
+      setTimeout(tick, deleting ? 40 : 70);
+    }
+    tick();
   }
 
   function renderAbout(data) {
@@ -545,6 +567,7 @@ function renderGallery(data) {
         return;
       }
       renderHero(SITE_DATA);
+      initRoleTypewriter();
       renderAbout(SITE_DATA);
       renderExpertise(SITE_DATA);
       renderSkills(SITE_DATA);

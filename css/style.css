@@ -244,6 +244,28 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
   font-size: clamp(1.05rem, 2vw, 1.4rem);
   color: var(--terra);
 }
+
+.hero-role::after {
+  content: "|";
+  color: var(--terra);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.hero-tagline { max-width: 52ch; margin-top: 1.5rem; font-size: 1.1rem; color: var(--text-dark-bg-muted); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2.2rem; }
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 2.2rem;
+  margin: 3.2rem 0 0;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--line-on-dark);
+  max-width: fit-content;
+}
 .hero-tagline { max-width: 52ch; margin-top: 1.5rem; font-size: 1.1rem; color: var(--text-dark-bg-muted); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2.2rem; }
 
