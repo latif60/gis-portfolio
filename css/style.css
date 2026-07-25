@@ -5,31 +5,31 @@
    ====================================================================== */
 
 :root {
-  /* ---- Colour tokens (named after what they represent) ---- */
-  --ink: #0E1A1F;          /* deep night-satellite background */
-  --ink-raised: #16262C;   /* cards / panels on dark sections */
-  --paper: #ECE7DA;        /* topographic paper background */
-  --paper-raised: #E2DCC9; /* cards / panels on light sections */
+  /* ---- Colour tokens (InBio white/pink palette) ---- */
+  --ink: #EEF0F3;          /* was dark navy — now unified light gray, no more alternating dark sections */
+  --ink-raised: #FFFFFF;   /* cards / panels on "ink" sections */
+  --paper: #EEF0F3;        /* light gray page background */
+  --paper-raised: #FFFFFF; /* cards / panels on "paper" sections */
 
-  --canopy: #4C7A52;  /* vegetation accent (green) */
-  --hydro: #2E8C99;   /* water accent (cyan) */
-  --terra: #C97D3A;   /* terrain accent (ochre) */
-  --alert: #B3503F;   /* climate / warning accent (clay red) */
+  --canopy: #FF1463;  /* was green — now pink accent */
+  --hydro: #FF1463;   /* was cyan — now pink accent */
+  --terra: #FF1463;   /* was ochre — now pink accent */
+  --alert: #FF1463;   /* was clay red — now pink accent */
 
-  --text-dark-bg: #E9EDEA;
-  --text-dark-bg-muted: #9FB0AC;
-  --text-light-bg: #1B2421;
-  --text-light-bg-muted: #5C6B68;
+  --text-dark-bg: #1A1A1A;         /* was light text for dark bg — now dark text since bg is now light */
+  --text-dark-bg-muted: #6B7280;
+  --text-light-bg: #1A1A1A;
+  --text-light-bg-muted: #6B7280;
 
-  --line-on-dark: rgba(233, 237, 234, 0.14);
-  --line-on-light: rgba(27, 36, 33, 0.14);
+  --line-on-dark: rgba(26, 26, 26, 0.08);
+  --line-on-light: rgba(26, 26, 26, 0.08);
 
   --font-display: "Space Grotesk", "Inter", sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 
   --container: 1180px;
-  --radius: 4px;
+  --radius: 18px;
   --header-h: 76px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
