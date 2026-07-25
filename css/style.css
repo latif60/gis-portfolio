@@ -241,9 +241,13 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
   color: var(--terra);
 }
 .hero-role {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  color: var(--text-light-bg);
+}
+.role-prefix {
   color: var(--terra);
 }
 
