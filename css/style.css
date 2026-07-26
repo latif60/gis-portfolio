@@ -344,7 +344,8 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
   color: var(--text-light-bg);
   font-size: 1rem;
   font-weight: 500;
-  .fact-value-accent {
+}
+.fact-value-accent {
   color: var(--terra);
 }
 /* ============================== GRID / CARDS ============================== */
