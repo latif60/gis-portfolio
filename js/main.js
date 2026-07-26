@@ -70,7 +70,8 @@
   /* ----------------------------- rendering ----------------------------- */
 
   function renderHero(data) {
-    $("#brandInitials").textContent = data.meta.initials;
+    const initialsEl = $("#brandInitials");
+    if (initialsEl) initialsEl.textContent = data.meta.initials;
     $("#heroName").textContent = data.meta.name;
     $("#heroTagline").textContent = data.hero.tagline;
     $("#footerName").textContent = data.meta.name;
@@ -105,13 +106,13 @@ function initRoleTypewriter() {
       if (!deleting) {
         charIndex++;
         el.textContent = current.slice(0, charIndex);
-        if (charIndex === current.length) { deleting = true; setTimeout(tick, 1400); return; }
+        if (charIndex === current.length) { deleting = true; setTimeout(tick, 500); return; }
       } else {
         charIndex--;
         el.textContent = current.slice(0, charIndex);
         if (charIndex === 0) { deleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; }
       }
-      setTimeout(tick, deleting ? 25 : 45);
+      setTimeout(tick, deleting ? 20 : 25);
     }
     tick();
   }
@@ -204,11 +205,16 @@ function initRoleTypewriter() {
       markers.push(marker);
     });
 
-    if (bounds.length === 1) {
+   if (bounds.length === 1) {
       map.setView(bounds[0], 7);
     } else {
       map.fitBounds(bounds, { padding: [40, 40] });
     }
+
+    requestAnimationFrame(() => map.invalidateSize());
+setTimeout(() => map.invalidateSize(), 300);
+window.addEventListener("load", () => map.invalidateSize());
+window.addEventListener("resize", () => map.invalidateSize());
 
     map.on("focus", () => map.scrollWheelZoom.enable());
     map.on("blur", () => map.scrollWheelZoom.disable());
@@ -251,8 +257,9 @@ function initRoleTypewriter() {
 
       const photoList = p.photos || (p.photo ? [p.photo] : []);
       const coverPhoto = photoList[0];
+      const playIcon = p.video ? `<span class="card-play-icon">▶</span>` : "";
       const imageTag = coverPhoto
-        ? `<img src="${coverPhoto}" alt="${p.title}" class="card-cover">`
+        ? `<div class="card-cover-wrap">${playIcon}<img src="${coverPhoto}" alt="${p.title}" class="card-cover"></div>`
         : "";
 
       const badgeTag = p.badge ? `<span class="project-badge">${p.badge}</span>` : "";
@@ -291,17 +298,29 @@ function renderCaseStudy(data) {
     $("#csTags").innerHTML = tags;
 
     const photoList = project.photos || (project.photo ? [project.photo] : []);
-    const page = document.querySelector(".case-study-page");
-    page.classList.toggle("single-photo", photoList.length === 1);
-    page.classList.toggle("multi-photo", photoList.length > 1);
+    const posterImg = photoList[0] || "";
 
-    $("#csGallery").innerHTML = photoList
+    const videoHtml = project.video
+      ? `<div class="cs-video-frame">
+           <video controls playsinline poster="${posterImg}">
+             <source src="${project.video}" type="video/mp4">
+             Your browser does not support the video tag.
+           </video>
+         </div>`
+      : "";
+
+      // If there's a video, don't repeat the poster image as a separate photo card
+    const galleryPhotos = project.video ? photoList.slice(1) : photoList;
+
+    const photosHtml = galleryPhotos
       .map(src => `<div class="cs-image-frame">
         <img src="${src}" alt="${project.title}" class="cs-image"
              onload="this.closest('.cs-image-frame').classList.add(this.naturalWidth >= this.naturalHeight ? 'landscape' : 'portrait')">
       </div>`)
       .join("");
-  }
+
+    $("#csGallery").innerHTML = videoHtml + photosHtml;
+     }
 
   function initLightbox() {
     const overlay = document.createElement("div");
@@ -321,6 +340,37 @@ function renderCaseStudy(data) {
         overlayImg.alt = e.target.alt;
         overlay.classList.add("active");
       }
+    });
+  }
+
+
+  function initNavScramble() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    document.querySelectorAll("[data-scramble]").forEach((el) => {
+      const original = el.textContent;
+      let interval = null;
+
+      el.addEventListener("mouseenter", () => {
+        clearInterval(interval);
+        let iteration = 0;
+        interval = setInterval(() => {
+          el.textContent = original
+            .split("")
+            .map((letter, i) => {
+              if (i < iteration) return original[i];
+              if (letter === " ") return " ";
+              return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join("");
+          if (iteration >= original.length) clearInterval(interval);
+          iteration += 1 / 2;
+        }, 30);
+      });
+
+      el.addEventListener("mouseleave", () => {
+        clearInterval(interval);
+        el.textContent = original;
+      });
     });
   }
 
@@ -564,6 +614,7 @@ function renderGallery(data) {
         renderCaseStudy(SITE_DATA);
         initLightbox();
         setupNav();
+        initNavScramble();
         setupFooter();
         return;
       }

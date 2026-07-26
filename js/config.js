@@ -31,8 +31,6 @@ const SITE_DATA = {
     tagline: "I translate satellite imagery and spatial data into evidence for climate, land use, and environmental decision making combining cartography, statistics, and field observation.",
     stats: [
       { value: "3+", label: "Years in GIS & RS" },
-      { value: "2+", label: "Projects mapped" },
-      { value: "0", label: "Publications" },
       { value: "150k+", label: "km² analysed" },
     ],
   },
@@ -41,13 +39,13 @@ const SITE_DATA = {
   about: {
     // Each string in this list becomes its own paragraph.
     paragraphs: [
-      "I'm an environmental researcher focused on Geographic Information Systems (GIS) and remote sensing, working at the intersection of satellite Earth observation, spatial statistics, and field-based environmental monitoring.",
-      "My work spans land use and land cover change detection, vegetation and water resource monitoring, climate risk mapping, and building decision-support tools for researchers, NGOs, and government agencies.",
-      "I'm especially interested in open and reproducible geospatial workflows Google Earth Engine, Python (GDAL, rasterio, geopandas), and QGIS — that make environmental data accessible beyond the research lab.",
+      "I'm an environmental researcher focused on Geographic Information Systems (GIS) and remote sensing, working at the intersection of satellite Earth observation, spatial statistics, and field based environmental monitoring.",
+      "My work spans land use and land cover change detection, vegetation and water resource monitoring, climate risk mapping, and building decision support tools for researchers, NGOs, and government agencies.",
+      "I'm especially interested in open and reproducible geospatial workflows Google Earth Engine, Python (GDAL, rasterio, geopandas), and QGIS that make environmental data accessible beyond the research lab.",
     ],
     facts: [
       { label: "Based in", value: "Hyderabad, Sindh, Pakistan" },
-      { label: "Focus areas", value: "Remote sensing · GIS · Climate & land-use change" },
+      { label: "Focus areas", value: "GIS & Remote Sensing, Climate Change, Forestry" },
       { label: "Currently", value: "Open to GIS, Research & consulting roles" },
       { label: "Languages", value: "English, Urdu/Sindhi" },
       
@@ -60,7 +58,7 @@ const SITE_DATA = {
     {
       icon: "satellite",
       title: "Remote Sensing & Image Classification",
-      description: "Processing multispectral and SAR imagery (Landsat, Sentinel-1/2, MODIS) for land cover classification, change detection, and time-series analysis.",
+      description: "Processing multispectral and SAR imagery (Landsat, Sentinel-1/2, MODIS) for land cover classification, change detection, and time series analysis.",
     },
     {
       icon: "layers",
@@ -79,13 +77,13 @@ const SITE_DATA = {
     },
     {
       icon: "globe",
-      title: "Climate & Land-Use Change",
-      description: "Modelling land-use transitions and climate impact scenarios to support adaptation planning and policy.",
+      title: "Climate & Land Use Change",
+      description: "Modelling land use transitions and climate impact scenarios to support adaptation planning and policy.",
     },
     {
       icon: "drone",
       title: "UAV & Field Data Collection",
-      description: "Drone-based aerial surveys, orthomosaic generation, and ground-truthing to validate satellite-derived products.",
+      description: "Drone based aerial surveys, orthomosaic generation, and ground truthing to validate satellite derived products.",
     },
   ],
 
@@ -127,7 +125,7 @@ const SITE_DATA = {
       type: "vegetation",
       year: "2025–2026",
       photo: "assets/sites/khipro.jpg",
-      description: "Supervised soil sampling and biomass estimation across the 24,000-acre Khipro Forest, collecting data from 71 sampling points to establish a carbon stock baseline for the Sindh Forest Department.",
+      description: "Supervised soil sampling and biomass estimation across the 24,000 acre Khipro Forest, collecting data from 71 sampling points to establish a carbon stock baseline for the Sindh Forest Department.",
     },
     {
       name: "Miani Forest Enumeration & Biomass Estimation",
@@ -136,7 +134,7 @@ const SITE_DATA = {
       type: "vegetation",
       year: "2025–2026",
       photo: "assets/sites/miani.jpg",
-      description: "Carried out a full enumeration of a 4-acre compartment in Miani Forest, recording tree-level data and conducting biomass estimation for the plot.",
+      description: "Carried out a full enumeration of a 4 acre compartment in Miani Forest, recording tree level data and conducting biomass estimation for the plot.",
     },
     {
       name: "Tharparkar Rangeland Carrying Capacity Assessment",
@@ -148,7 +146,7 @@ const SITE_DATA = {
       description: "Conducted a rangeland carrying capacity and soil nutrient assessment across 29 villages for the UN-FAO funded SRAS project, benchmarking current conditions against a 2021 baseline.",
     },
     {
-      name: "Sindh Forest Inventory — UNOPS Project",
+      name: "Sindh Forest Inventory UNOPS Project",
       lat: 25.8943,
       lng: 68.5247,
       type: "vegetation",
@@ -178,6 +176,8 @@ const SITE_DATA = {
       title: "Flood Hazard Mapping for the Lower Indus Basin",
       year: "2023",
       category: "Hydrology",
+      photos: ["assets/projects/thumbnail1.png"],
+      video: "assets/videos/EPNG5603.MP4",
       icon: "droplet",
       description: "SAR-based flood extent mapping combined with a DEM-derived hydrological model to identify high-risk settlements.",
       tags: ["Sentinel-1", "QGIS", "HEC-RAS"],
