@@ -119,10 +119,12 @@ function initRoleTypewriter() {
   function renderAbout(data) {
     const textWrap = $("#aboutText");
     (data.about.paragraphs || []).forEach((p) => textWrap.appendChild(el("p", null, p)));
-
     const factsWrap = $("#aboutFacts");
     (data.about.facts || []).forEach((f) => {
-      factsWrap.appendChild(el("li", null, `<span class="fact-label mono">${f.label}</span><span class="fact-value">${f.value}</span>`));
+      const isCurrent = f.label.toLowerCase() === "currently";
+      factsWrap.appendChild(
+        el("li", null, `<span class="fact-label mono">${f.label}</span><span class="fact-value${isCurrent ? " fact-value-accent" : ""}">${f.value}</span>`)
+      );
     });
   }
 

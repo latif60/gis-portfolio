@@ -50,6 +50,7 @@ const SITE_DATA = {
       { label: "Focus areas", value: "Remote sensing · GIS · Climate & land-use change" },
       { label: "Currently", value: "Open to GIS, Research & consulting roles" },
       { label: "Languages", value: "English, Urdu/Sindhi" },
+      
     ],
   },
 
