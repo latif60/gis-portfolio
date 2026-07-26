@@ -101,20 +101,20 @@
     <section class="section section-paper" id="about">
       <div class="container">
         <div class="about-grid">
-          <div class="about-portrait" data-reveal>
+         <div class="about-portrait" data-reveal>
+            <div class="frame-ticks" aria-hidden="true"></div>
             <div class="frame">
-              <div class="frame-ticks" aria-hidden="true"></div>
               <img src="assets/profile.jpg" alt="Portrait of Your Name" id="aboutPhoto"
                    onerror="this.style.display='none'; this.parentElement.classList.add('frame-fallback')" />
             </div>
           </div>
 
-          <div class="about-copy" data-reveal>
+         <div class="about-copy" data-reveal>
             <h2>About <span class="accent-word">me</span></h2>
             <div id="aboutText" class="about-text"></div>
-
-            <ul class="fact-list" id="aboutFacts"></ul>
           </div>
+
+          <ul class="fact-list" id="aboutFacts"></ul>
         </div>
       </div>
     </section>

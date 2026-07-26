@@ -296,19 +296,27 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
 @keyframes scrollDown { 0% { opacity: 1; transform: translateY(0); } 70% { opacity: 0; transform: translateY(10px); } 100% { opacity: 0; } }
 
 /* ============================== ABOUT ============================== */
-.about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; margin-top: 2.5rem; align-items: start; }
+ .about-grid {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  grid-template-areas:
+    "copy portrait"
+    "facts facts";
+  gap: 2.5rem 3rem;
+  margin-top: 2.5rem;
+  align-items: start;
+}
+.about-copy { grid-area: copy; }
+.about-portrait { grid-area: portrait; justify-self: end; position: relative; background: #fff; border-radius: 4px; padding: 10px; max-width: 260px; }
 
-.about-portrait {
-  background: #fff;
-  border-radius: 24px;
-  padding: 14px;
+.frame-ticks { position: absolute; inset: -10px; pointer-events: none; z-index: 2; }
+.frame-ticks::before, .frame-ticks::after {
+  content: ""; position: absolute; width: 16px; height: 16px;
+  border: 2px solid var(--terra);
 }
-.about-portrait {
-  background: #fff;
-  border-radius: 4px;
-  padding: 10px;
-  max-width: 260px;
-}
+.frame-ticks::before { top: 0; left: 0; border-right: none; border-bottom: none; }
+.frame-ticks::after { bottom: 0; right: 0; border-left: none; border-top: none; }
+
 .frame {
   position: relative;
   aspect-ratio: 3 / 4;
@@ -323,29 +331,23 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
   font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; color: var(--text-light-bg-muted);
   background: repeating-linear-gradient(135deg, var(--paper-raised), var(--paper-raised) 10px, #d8d1ba 10px, #d8d1ba 11px);
 }
-.frame-ticks { position: absolute; inset: -10px; pointer-events: none; }
-.frame-ticks::before, .frame-ticks::after {
-  content: ""; position: absolute; width: 16px; height: 16px;
-  border: 2px solid var(--terra);
-}
-.frame-ticks::before { top: 0; left: 0; border-right: none; border-bottom: none; }
-.frame-ticks::after { bottom: 0; right: 0; border-left: none; border-top: none; }
 
 .about-copy h2 { margin-bottom: 1.2rem; }
 .about-text p { margin-bottom: 1.1rem; color: var(--text-light-bg); }
 .about-text p:last-child { margin-bottom: 0; }
 
 .fact-list {
+  grid-area: facts;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  margin-top: 1.8rem;
+  margin-top: 1rem;
   padding: 0;
   list-style: none;
 }
 .fact-list li {
   background: #fff;
-  border-radius: 18px;
+  border-radius: 6px;
   padding: 1.1rem 1.3rem;
   display: flex;
   flex-direction: column;
@@ -366,7 +368,6 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
 .fact-value-accent {
   color: var(--terra);
 }
-
 .fact-list li.fact-current {
   background: #ffe3ec;
 }
@@ -585,7 +586,9 @@ body.lightbox-open { overflow: hidden; }
 
   .grid-3 { grid-template-columns: 1fr; }
   .legend-grid { grid-template-columns: 1fr; }
-  .about-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; grid-template-areas: "portrait" "copy" "facts"; }
+  .about-portrait { justify-self: start; }
+  .fact-list { grid-template-columns: 1fr 1fr; }
   .frame { max-width: 220px; }
   .hero-stats { grid-template-columns: repeat(2, auto); gap: 1.6rem 2rem; }
   .pub-item { grid-template-columns: 2.2rem 1fr; }
@@ -593,7 +596,6 @@ body.lightbox-open { overflow: hidden; }
   .section { padding: 4.5rem 0; }
   #fieldMap { height: 360px; }
 }
-
 
 /* --- Card cover photo (grid) --- */
 .card-cover {
