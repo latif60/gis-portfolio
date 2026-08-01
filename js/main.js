@@ -29,6 +29,8 @@
     mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M4 6.5l8 6.5 8-6.5"/></svg>`,
     phone: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l1.5 4-2 1.5a13 13 0 006.5 6.5l1.5-2 4 1.5v3a1.5 1.5 0 01-1.6 1.5C10.5 19.6 4.4 13.5 4 6.6 4 5.6 4.6 4.7 5 4z"/></svg>`,
     pin: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.6 7-11.5A7 7 0 005 9.5C5 14.4 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>`,
+    linkedin: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>`,
+    github: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.17c0 4.48 2.87 8.28 6.84 9.62.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.11-1.49-1.11-1.49-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.9-1.33 2.75-1.05 2.75-1.05.55 1.43.2 2.49.1 2.75.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.17C22 6.58 17.52 2 12 2z"/></svg>`,
     default: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/></svg>`,
   };
   const getIcon = (name) => ICONS[name] || ICONS.default;
@@ -38,7 +40,6 @@
     linkedin: "in",
     github: "gh",
     researchgate: "rg",
-    orcid: "id",
     scholar: "gs",
     x: "x",
     mail: "@",
@@ -432,7 +433,7 @@ function renderTimeline(items, containerId) {
 
     const socialWrap = $("#socialList");
     (data.social || []).forEach((s) => {
-      const a = el("a", "social-link", `<span class="mono">${SOCIAL_ABBR[s.icon] || s.icon.slice(0, 2)}</span>`);
+      const a = el("a", "social-link", `<span class="social-icon">${getIcon(s.icon)}</span>`);
       a.href = s.url;
       a.target = "_blank";
       a.rel = "noopener noreferrer";
@@ -513,34 +514,39 @@ function renderTimeline(items, containerId) {
     });
   }
 
-  function setupContactForm(data) {
+ function setupContactForm(data) {
     const form = $("#contactForm");
     if (!form) return;
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const name = $("#cf-name").value.trim();
-      const email = $("#cf-email").value.trim();
-      const subject = $("#cf-subject").value.trim();
-      const message = $("#cf-message").value.trim();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
 
-      const body = `${message}\n\n— ${name} (${email})`;
-      const mailto = `mailto:${data.meta.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        const result = await response.json();
 
-      /* ---------------------------------------------------------------
-         Want submissions to go straight to an inbox WITHOUT opening the
-         visitor's email app? You can swap the two lines above for a
-         free form backend such as Formspree (no credit card required
-         on the free plan):
+        if (result.success) {
+          submitBtn.textContent = "Message sent ✓";
+          form.reset();
+        } else {
+          submitBtn.textContent = "Something went wrong";
+        }
+      } catch (err) {
+        console.error("Form submission failed:", err);
+        submitBtn.textContent = "Something went wrong";
+      }
 
-           fetch("https://formspree.io/f/your-form-id", {
-             method: "POST",
-             headers: { "Accept": "application/json" },
-             body: new FormData(form),
-           });
-
-         See the README for step-by-step instructions.
-      --------------------------------------------------------------- */
+      setTimeout(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }, 3000);
     });
   }
 

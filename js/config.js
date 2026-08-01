@@ -171,16 +171,15 @@ const SITE_DATA = {
       link: "#",
     },
     {
-      slug: "flood-hazard-mapping",
-      badge: "SAR / DEM",
-      title: "Flood Hazard Mapping for the Lower Indus Basin",
-      year: "2023",
+      slug: "web-app-core",
+      badge: "JAVASCRIPT / GEE",
+      title: "Core A GEE Based Web Application Dashboard For Sindh Province",
       category: "Hydrology",
-      photos: ["assets/projects/thumbnail1.png"],
-      video: "assets/videos/EPNG5603.MP4",
+      photos: ["assets/projects/thumbnail1.jpg"],
+      video: "assets/videos/lv_0_20260726220415.mp4",
       icon: "droplet",
-      description: "SAR-based flood extent mapping combined with a DEM-derived hydrological model to identify high-risk settlements.",
-      tags: ["Sentinel-1", "QGIS", "HEC-RAS"],
+      description: "CORE is a Google Earth Engine based spatial dashboard designed to monitor educational status and land cover dynamics across all districts in Sindh.",
+      tags: ["DYNAMIC-V1", "Bureau of statistics", "GEE"],
       link: "#",
     },
     {
@@ -199,17 +198,7 @@ const SITE_DATA = {
       tags: ["NDMI","LST","NDVI", "ArcGIS Pro"],
       link: "#",
     },
-    {
-      slug: "uav-crop-health-assessment",
-      badge: "UAV / Multispectral",
-      title: "UAV-Based Crop Health Assessment",
-      year: "2022",
-      category: "Agriculture",
-      icon: "drone",
-      description: "Drone-acquired multispectral imagery processed into orthomosaics to assess crop vigour across smallholder farms.",
-      tags: ["UAV", "Multispectral", "Pix4D"],
-      link: "#",
-    },
+  
     {
       slug: "urban-heat-island-map",
       badge: "Landsat / LST",
@@ -222,17 +211,7 @@ const SITE_DATA = {
       tags: ["Landsat-9", "LST", "Spatial Statistics"],
       link: "#",
     },
-    {
-      slug: "watershed-delineation",
-      badge: "DEM / HEC-RAS",
-      title: "Watershed Delineation & Erosion Risk Model",
-      year: "2021",
-      category: "GIS Modelling",
-      icon: "layers",
-      description: "Automated watershed and stream-network delineation from DEM data feeding into a soil-erosion risk model.",
-      tags: ["DEM", "ArcGIS Pro", "RUSLE"],
-      link: "#",
-    },
+   
   ],
 
 
@@ -319,8 +298,9 @@ const SITE_DATA = {
   // icon options: "linkedin", "github", "researchgate", "orcid", "mail", "x", "scholar"
   social: [
     { icon: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/abdul-latif-078a31243/" },
-    { icon: "scholar", label: "Google Scholar", url: "https://scholar.google.com" },
-    { icon: "github", label: "GitHub", url: "https://github.com/yourname" },
+    { icon: "github", label: "GitHub", url: "https://github.com/latif60" },
+    //{ icon: "scholar", label: "Google Scholar", url: "https://scholar.google.com" },
+    
     
   ],
 };

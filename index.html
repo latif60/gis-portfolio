@@ -117,13 +117,11 @@
 
     <!-- ===================== HERO ===================== -->
     <section class="hero" id="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <svg class="contour-field" viewBox="0 0 1200 800" preserveAspectRatio="none">
-          <path class="c1" d="M-50,650 C150,600 250,700 450,640 C650,580 750,660 950,610 C1050,585 1150,620 1250,600" />
-          <path class="c2" d="M-50,550 C150,500 280,600 480,540 C660,485 760,560 980,510 C1080,485 1180,520 1250,500" />
-          <path class="c3" d="M-50,450 C160,400 260,500 470,440 C650,390 770,460 970,410 C1070,385 1170,420 1250,400" />
-          <path class="c4" d="M-50,750 C160,710 260,780 470,730 C650,690 770,750 970,710 C1070,690 1170,720 1250,705" />
-        </svg>
+    <div class="hero-bg" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-poster.jpg">
+          <source src="assets/videos/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
       </div>
 
       <div class="container hero-inner">
@@ -223,7 +221,7 @@
     <section class="section section-paper" id="gallery">
       <div class="container">
         <h2>Maps &amp; <span class="accent-word">visual outputs</span></h2>
-        <p class="section-lede">A broader look at maps, classifications, and Earth Engine outputs. Click any image to enlarge.</p>
+         <!--<p class="section-lede">A broader look at maps, classifications, and Earth Engine outputs. Click any image to enlarge.</p>-->
         <div class="gallery-grid" id="galleryGrid" data-reveal-group></div>
       </div>
     </section>
@@ -263,6 +261,7 @@
         </div>
 
         <form class="contact-form" id="contactForm" data-reveal>
+          <input type="hidden" name="access_key" value="5e2b0790-6ded-4997-a2c3-0dc712d421b2">
           <div class="form-row">
             <label for="cf-name">Name</label>
             <input id="cf-name" name="name" type="text" autocomplete="name" required />
