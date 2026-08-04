@@ -212,9 +212,26 @@ const SITE_DATA = {
       link: "#",
     },
    
-  ],
+ 
 
+     {
+      slug: "co-south-asia-carbon-monooxide",
+      badge: "CO / GEE /Sentinel-5P",
+      title: "Spatio Temporal Analysis of Carbon Monoxide Dynamics in South Asia (2019–2026)",
+      year: "2026",
+      category: "Remote sensing",
+      photos: [
+  "assets/projects/co1.jpg",
+  "assets/projects/co2.jpg",
+  "assets/projects/co3.jpg"
+],
+      icon: "leaf",
+      description: "This analysis utilizes high resolution satellite imagery to evaluate the atmospheric concentration of carbon monoxide (CO) across the South Asian subcontinent.",
+      tags: ["CO","GEE","Sentinel-5P"],
+      link: "#",
+    },
 
+ ],
   /* -------------------- 6B. MAP GALLERY -------------------- */
   // category = short label shown on the thumbnail (e.g. "LULC", "Precipitation", "Climate")
   gallery: [
