@@ -225,7 +225,6 @@ const SITE_DATA = {
   "assets/projects/co2.jpg",
   "assets/projects/co3.jpg"
 ],
-      icon: "leaf",
       description: "This analysis utilizes high resolution satellite imagery to evaluate the atmospheric concentration of carbon monoxide (CO) across the South Asian subcontinent.",
       tags: ["CO","GEE","Sentinel-5P"],
       link: "#",
