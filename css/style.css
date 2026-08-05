@@ -257,8 +257,8 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
   top: 50%;
   right: 5%;
   transform: translateY(-50%);
-  width: 42%;             /* Adjust size relative to screen width */
-  max-width: 650px;
+  width: 30%;             /* Adjust size relative to screen width */
+  max-width: 420px;
   height: auto;
   object-fit: contain;
   z-index: 2;             /* Sits above background layers */
@@ -272,7 +272,8 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
     top: auto;
     right: auto;
     transform: none;
-    width: 90%;
+    width: 75%;
+    max-width: 350px;
     margin: 2rem auto;
     display: block;
   }
