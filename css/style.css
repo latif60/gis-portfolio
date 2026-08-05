@@ -211,18 +211,29 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
 }
+
 /* ============================== HERO ============================== */
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  /* If you want a split layout, change justify-content to space-between */
+  justify-content: flex-start; 
   background: var(--ink);
   color: var(--text-dark-bg);
   overflow: hidden;
   padding-top: var(--header-h);
 }
 
+/* Background wrapper covering the section */
+.hero-bg { 
+  position: absolute; 
+  inset: 0; 
+  opacity: 0.90; /* Adjusted for better image clarity */
+  z-index: 0;
+  pointer-events: none;
+}
 
 .hero-video {
   position: absolute;
@@ -232,6 +243,7 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
   object-fit: cover;
   z-index: 0;
 }
+
 .hero-video-overlay {
   position: absolute;
   inset: 0;
@@ -239,27 +251,38 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
   z-index: 1;
 }
 
-
-.hero-bg { position: absolute; inset: 0; opacity: 0.55; }
-.contour-field { width: 100%; height: 100%; }
-.contour-field path { fill: none; stroke: var(--text-dark-bg); stroke-width: 1; opacity: 0.16; }
-.contour-field .c1 { stroke: var(--canopy); opacity: 0.35; }
-.contour-field .c2 { stroke: var(--hydro); opacity: 0.28; }
-.contour-field .c3 { opacity: 0.18; }
-.contour-field .c4 { stroke: var(--terra); opacity: 0.22; }
-@media (prefers-reduced-motion: no-preference) {
-  .contour-field path { animation: drift 22s ease-in-out infinite alternate; }
-  .contour-field .c2 { animation-duration: 28s; }
-  .contour-field .c3 { animation-duration: 34s; }
-  .contour-field .c4 { animation-duration: 26s; }
+/* Style and position your spatial statistics image on the right */
+.hero-static-image {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  width: 42%;             /* Adjust size relative to screen width */
+  max-width: 650px;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;             /* Sits above background layers */
+  opacity: 0.95;
 }
 
-
-
-@keyframes drift {
-  from { transform: translateX(0); }
-  to { transform: translateX(-40px); }
+/* Responsive adjustment for mobile screens where right-side placement crowds text */
+@media (max-width: 992px) {
+  .hero-static-image {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    width: 90%;
+    margin: 2rem auto;
+    display: block;
+  }
+  
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
 }
+
 
 .hero-inner { position: relative; z-index: 1; padding: 5rem 0 4rem; width: 100%; }
 .eyebrow { display: block; font-size: 0.82rem; margin-bottom: 1.5rem; }
