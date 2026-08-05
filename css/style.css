@@ -254,9 +254,9 @@ h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
 /* Style and position your spatial statistics image on the right */
 .hero-static-image {
   position: absolute;
-  top: 50%;
+  top: 60%;
   right: 5%;
-  transform: translateY(-50%);
+  transform: translateY(-58%);
   width: 30%;             /* Adjust size relative to screen width */
   max-width: 420px;
   height: auto;
