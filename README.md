@@ -1,4 +1,4 @@
-# Your Name — GIS & Remote Sensing Portfolio
+GIS & Remote Sensing Portfolio Web.
 
 A complete, self-contained portfolio website for a GIS / Remote Sensing / Environmental
 Research profile. Plain HTML, CSS and JavaScript — no build tools, no framework,
@@ -132,4 +132,4 @@ This step is entirely optional — the site works fully without it.
   CARTO** map tiles — no API key, no account, no usage cost for a personal site.
 - Fonts load from Google Fonts' free CDN.
 - Everything else is plain HTML/CSS/JS with zero dependencies, so there's nothing
-  to "break" with version updates — it will keep working indefinitely.
+  to "break" with version updates — it will keep working 
